@@ -25,12 +25,15 @@
             "aot": true,
             "assets": [
               "projects/getting-started/src/favicon.ico",
-              "projects/getting-started/src/assets"
+              "projects/getting-started/src/assets",
+              "projects/getting-started/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/getting-started/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "projects/getting-started/ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -88,7 +91,8 @@
             "karmaConfig": "projects/getting-started/karma.conf.js",
             "assets": [
               "projects/getting-started/src/favicon.ico",
-              "projects/getting-started/src/assets"
+              "projects/getting-started/src/assets",
+              "projects/getting-started/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/getting-started/src/styles.scss"
