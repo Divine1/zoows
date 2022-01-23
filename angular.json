@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gettingStarted",
+            "outputPath": "dist/gettingStarted/browser",
             "index": "projects/getting-started/src/index.html",
             "main": "projects/getting-started/src/main.ts",
             "polyfills": "projects/getting-started/src/polyfills.ts",
@@ -106,7 +106,8 @@
             "tsConfig": [
               "projects/getting-started/tsconfig.app.json",
               "projects/getting-started/tsconfig.spec.json",
-              "projects/getting-started/e2e/tsconfig.json"
+              "projects/getting-started/e2e/tsconfig.json",
+              "projects/getting-started/tsconfig.server.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -122,6 +123,41 @@
           "configurations": {
             "production": {
               "devServerTarget": "gettingStarted:serve:production"
+            }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/gettingStarted/server",
+            "main": "projects/getting-started/src/main.server.ts",
+            "tsConfig": "projects/getting-started/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "projects/getting-started/src/environments/environment.ts",
+                  "with": "projects/getting-started/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "gettingStarted:build",
+            "serverTarget": "gettingStarted:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gettingStarted:build:production",
+              "serverTarget": "gettingStarted:server:production"
             }
           }
         }
