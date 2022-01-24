@@ -1,6 +1,13 @@
 main appcomponent v6
 
 <h1>render placeholderdata</h1>
+
+<button (click)="registerForPushNotification()" >Register for notification</button>
+
+
+<div class="messagecontainer">
+    <button (click)="sendMessage()">Send message</button>
+</div>
 <div *ngFor="let data of placeholderdata;let i = index">
     i {{i}} - id {{data.id}} - title {{data.title}}
 

@@ -17,4 +17,9 @@ export class BackendService {
     let url = "https://jsonplaceholder.typicode.com/todos";
     return this.httpClient.get(url)
   }
+
+  sendMessage(messageText:any){
+    let url = "http://localhost:3000/sendMessage"
+    return this.httpClient.post(url,{message : messageText})
+  }
 }
