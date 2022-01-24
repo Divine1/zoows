@@ -12,23 +12,21 @@ export class PushnotificationService {
     private swPush : SwPush,
     private httpClient : HttpClient
   ) { 
-
-
-
-  }
-
-
-  ngOnInit(){
-
     if(this.swPush.isEnabled){
-      
+      console.log("swPush is enabled ")
       this.swPush.messages.subscribe((pushResData)=>{
         console.log("pushResData data ",pushResData);
       },(err)=>{
         console.log("pushResData err ",err);
       })
     }
+    else{
+      console.log("swPush is not enabled ")
+    }
+
+
   }
+
 
 
   subscribeToPushNotification(){
